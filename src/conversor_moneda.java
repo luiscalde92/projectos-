@@ -69,9 +69,23 @@ public class conversor_moneda extends class_Challenge {
 		JOptionPane.showMessageDialog(null, "equivalen a : " + valorMoneda + " " + Moneda);
 		return valorMoneda;
 	}
-	
-	public void option() {
-	JOptionPane.showInternalConfirmDialog(null,"Deseas continuar", "escoje una opcion",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+ 
+	public int option() {
+		option = Integer.valueOf(JOptionPane.showInternalConfirmDialog(null, "Deseas continuar", "escoje una opcion",
+				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE));
+		switch (option) {
+		case 0:
+			//JOptionPane.showMessageDialog(null, "equivalen a : " );
+			break;
+		case 1:
+			JOptionPane.showMessageDialog(null, "Fin de programa");
+			break;
+		default:
+			JOptionPane.showMessageDialog(null, "Ups...! Adios ");
+			break;
+		}
+		return this.option;
 	}
+	
 
 }
