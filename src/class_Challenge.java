@@ -1,17 +1,15 @@
 
-import javax.swing.JOptionPane;
-
-/*
-      - Convertir de la moneda de tu país a Dólar
-      - Convertir de la moneda de tu país  a Euros
-      - Convertir de la moneda de tu país  a Libras Esterlinas
-      - Convertir de la moneda de tu país  a Yen Japonés
-      - Convertir de la moneda de tu país  a Won sul-coreano
-      
-      - coversor de temperatura 
-*/
+	
+	import javax.swing.JOptionPane;
+	import java.text.DecimalFormat;
+/**
+ * 
+ * @author Luis Calderon
+ *
+ */
 public class class_Challenge {
 
+	
 	private double moneda;
 	private double Dolar;
 	private double Euros;
@@ -26,17 +24,18 @@ public class class_Challenge {
 	protected String cmh;
 	protected String cm2;
 	protected int option; // comparar continuar si o no
-
-	public class_Challenge() {
-
-	}
+	
+	
+	DecimalFormat df = new DecimalFormat("#.###");//quitar decimales
+	
+	
 
 	// menu seleccion de cambio
-	public String menu1() {
+	public String menu1(){
 		String menu = (JOptionPane
 				.showInputDialog(null, "elige una opcion", "menu de conversiones", JOptionPane.PLAIN_MESSAGE, null,
-						new Object[] { "conversor de temperatura", "conversor moneda" }, "cancelar")
-				.toString());
+						new Object[] { "conversor de temperatura", "conversor moneda", }, "cancelar")
+				.toString()	);
 		if (menu == "conversor moneda") {
 			String menu1 = (JOptionPane
 					.showInputDialog(null, "moneda local o extranjera", "especifica", JOptionPane.PLAIN_MESSAGE, null,
@@ -49,9 +48,10 @@ public class class_Challenge {
 				setMoneda(Double.parseDouble(JOptionPane.showInputDialog("introduce el valor:")));
 				setTemperatura(getMoneda());
 				break;
-			} catch (NumberFormatException | NullPointerException e) {
+			} catch (NumberFormatException e) {
 
 				JOptionPane.showMessageDialog(null, "El valor ingresado no es valido. Inténtelo de nuevo.");
+				
 			}
 		}
 		if (menu == "conversor de temperatura") { // temperatura
@@ -64,12 +64,12 @@ public class class_Challenge {
 			case "fahrenheit a celsius":
 				menu1 = "fahrenheit a celsius";
 				JOptionPane.showMessageDialog(null,
-						"equivalen a : " + ((this.Temperatura - 32)/1.8) + " celcius");
+						"equivalen a : " + df.format((this.Temperatura - 32)/1.8) + " celcius");
 				break;
 			case "celsius a fahrenheit":
 				menu1 = "celsius a fahrenheit";
 				JOptionPane.showMessageDialog(null,
-						"equivalen a : " + ((this.Temperatura *1.8) + 32) + " fahrenheit");
+						"equivalen a : " + df.format((this.Temperatura *1.8) + 32) + " fahrenheit");
 				break;
 			}
 			menu = menu1;
@@ -118,7 +118,7 @@ public class class_Challenge {
 	}
 
 	public double getDolar() {
-		JOptionPane.showMessageDialog(null, "equivalen a : " + Dolar + "pesos");
+		JOptionPane.showMessageDialog(null, "equivalen a : " + df.format(Dolar)+ "pesos");
 		return Dolar;
 	}
 
@@ -128,7 +128,7 @@ public class class_Challenge {
 	}
 
 	public double getEuros() {
-		JOptionPane.showMessageDialog(null, "equivalen a : " + Euros + "pesos");
+		JOptionPane.showMessageDialog(null, "equivalen a : " +df.format(Euros) + "pesos");
 		return Euros;
 	}
 
@@ -137,7 +137,7 @@ public class class_Challenge {
 	}
 
 	public double getLibraEsterlina() {
-		JOptionPane.showMessageDialog(null, "equivalen a : " + libraEsterlina + " pesos");
+		JOptionPane.showMessageDialog(null, "equivalen a : " + df.format(libraEsterlina) + " pesos");
 		return libraEsterlina;
 	}
 
@@ -146,7 +146,7 @@ public class class_Challenge {
 	}
 
 	public double getYenJapones() {
-		JOptionPane.showMessageDialog(null, "equivalen a : " + yenJapones + " pesos");
+		JOptionPane.showMessageDialog(null, "equivalen a : " + df.format(yenJapones) + " pesos");
 		return yenJapones;
 	}
 
@@ -155,7 +155,7 @@ public class class_Challenge {
 	}
 
 	public double getWonScoreano() {
-		JOptionPane.showMessageDialog(null, "equivalen a : " + wonScoreano + " pesos");
+		JOptionPane.showMessageDialog(null, "equivalen a : " + df.format(wonScoreano) + " pesos");
 		return wonScoreano;
 	}
 
